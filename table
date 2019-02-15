@@ -1,0 +1,10 @@
+users
+  - id, name, password
+post
+  - id, users_id, description, image,　creater_name
+like
+  - id, users_id, post_id
+Comment
+  - id, users_id, post_id, content
+Follow
+  - id

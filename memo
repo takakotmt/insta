@@ -1,0 +1,71 @@
+データベース構成
+CREATE DATABASE　〇〇;
+  〇〇のデータベースつくるよー
+
+USE　〇〇;
+  〇〇のデータベースつかうよー
+
+CREATE　TABLE　△△(
+id いろいろ
+);
+
+ALTER TABLE 〇〇
+ADD カラム名 データ型 NULL or NOT NULL;
+
+
+CREATE TABLE sample(
+id int(4) auto_increment,
+file_name varchar(256),
+datainfo DATETIME NULL,
+msg varchar(2000),
+primary key(id)
+creater_name varchar(256) NULL
+);
+
+CREATE TABLE users(
+id int(4) auto_increment,
+users_name varchar(256),
+users_pass varchar(256),
+primary key(id)
+);
+
+CREATE TABLE comments(
+id int(4) auto_increment,
+creater_id int(4),
+creater_name varchar(256),
+post_id int(4),
+content varchar(2000),
+primary key(id)
+);
+
+CREATE TABLE iines(
+id int(4) auto_increment,
+user_id int(4),
+post_id int(4),
+primary key(id)
+)
+
+
+
+rbに書く
+
+client = Mysql2::Client.new(
+    host: 'localhost',
+    port: 3306,
+    username: 'root',
+    password: '',
+    database: 'データベースの名前',
+
+sql = "INSERT INTO sample () VALUES ();"
+
+
+articles.each { |article|
+  puts article['creater_name']
+  puts article['msg']
+
+  comments.each { |comment|
+    puts comment['creater_name']
+    puts comment['content']
+  }
+
+}

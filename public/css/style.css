@@ -1,0 +1,47 @@
+body{
+  background-color: #f5f5f5;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+img{
+  width: 100%;
+}
+header{
+  font-family: 'Righteous', cursive;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+.btn{
+  font-family: 'Righteous', cursive;
+}
+.toukou{
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 4rem;
+}
+
+.item {
+  margin-bottom: 1rem;
+  width: 33%;
+
+}
+
+.item img{
+  display: block;
+	margin-bottom: 1rem;
+	width: 100%;
+  height: auto;
+}
+
+.img-edge{
+  height: 240px;
+  overflow: hidden;
+}
+.come{
+  display: flex;
+}

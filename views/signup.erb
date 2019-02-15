@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="jp" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/signin.css">
+
+    <title>新規登録</title>
+  </head>
+  <body class="text-center">
+    <!-- コピペ -->
+    <form class="form-signin" action="/signup" method="post">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+      <%= @page_info %>
+      <input type="text" id="signup_name" name="signup_name" class="form-control" placeholder="新規ユーザー名" autofocus="">
+      <input type="password" id="inputPassword" name="signup_pass" class="form-control" placeholder="新規パスワード">
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+
+    </form>
+    <!-- ここまで -->
+
+    <!-- <div class="container"> <form action="/signup" method="post"> 新規ユーザー名：<input type="text" name="signup_name" required="required"> 新規パスワード：<input type="text" name="signup_pass" required="required"> <input type="submit" value="登録"> </form> -->
+
+  </div>
+</body>
+</html>

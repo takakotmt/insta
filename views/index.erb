@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="jp" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>トップページ</title>
+  </head>
+  <header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container d-flex justify-content-between">
+        <a href="https://getbootstrap.com/docs/4.1/examples/album/#" class="navbar-brand d-flex align-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+          <strong>Instagram</strong>
+          <a class="loginname col-2"><%= @name %></a>
+           <a class="btn btn-outline-light btn-sm" href="/logout">LOGOUT</a>
+
+        </a>
+      </div>
+    </div>
+  </header>
+  <body>
+    <div class="toukou">
+      <form action="/index" method="POST" enctype="multipart/form-data">
+        <input type="text" name="msg">
+        <input type="file" name="file">
+        <input type="submit" class="btn btn-outline-dark btn-sm" value="UP">
+      </form>
+
+    </div>
+
+    <div class="row">
+      <% @articles.each do |article| %>
+        <div class="item card">
+          <div class="img-edge">
+            <img class="card-img" src="/img/<%= article['file_name'] %>" ="flexbox" alt="Card image cap">
+          </div>
+          <input type="hidden" name="file_name" value="<%= article['file_name'] %>">
+
+          <div class="card-body">
+            <p><%= article['creater_name'] %></p>
+            <p><%= article['msg'] %></p>
+            <form action="/comment" class="comment" method="POST">
+              <input type="hidden" name="post_id" value="<%= article['id']%>">
+              <input type="text" name="content" value="">
+              <input type="submit" class="btn btn-outline-dark btn-sm" value="COMMENT">
+            </form>
+            <form class="delete_form" action="/file_delete" method="POST">
+              <input type="hidden" name="_method" value="delete">
+              <input type="hidden" name="sample_id" value="<%= article['id'] %>">
+              <input type="hidden" name="file_name" value="<%= article['file_name'] %>" required>
+              <input type="submit" class="btn btn-outline-dark btn-sm" value="DELETE">
+            </form>
+            <!-- <form action="/iine" method="POST">
+              <input type="hidden" name="user_id" value="">
+              <input type="submit" name="post_id" value="LIKE">
+            </form> -->
+            <% @comments_array[article['id']].each do |comments|%>
+              <div class="come">
+                <p><%= comments['comenter_name']%></p>:
+                <p><%= comments['comment']%></p>
+              </div>
+            <% end %>
+            <!-- <a href="/comment?post_id=<%= article['id'] %>">コメント</a> -->
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </body>
+  <header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container d-flex justify-content-between">
+        <!-- <a href="https://getbootstrap.com/docs/4.1/examples/album/#" class="navbar-brand d-flex align-items-center"> -->
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg> -->
+          <strong>Produced　by tomato</strong>
+
+        </a>
+      </div>
+    </div>
+  </header>
+</html>
